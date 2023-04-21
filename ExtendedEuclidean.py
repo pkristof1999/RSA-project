@@ -1,4 +1,6 @@
 def extendedEuclidean(a, b):
+    a = int(a)
+    b = int(b)
     rk = [a, b]; qk = [0, a // b]
     x0 = [1, 0]; y0 = [0, 1]
     k = 1; n = 1

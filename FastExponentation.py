@@ -1,4 +1,5 @@
 def fastExponentation(base, exp, mod):
+    base = int(base)
     original_exp = exp
     exp = bin(int(exp))[2:]
     powOfTwo = []
