@@ -1,6 +1,6 @@
-def fastExponentation(base, exp, modulo):
+def fastExponentation(base, exp, mod):
     original_exp = exp
-    exp = bin(exp)[2:]
+    exp = bin(int(exp))[2:]
     powOfTwo = []
     result = 1
     c = []
@@ -12,13 +12,13 @@ def fastExponentation(base, exp, modulo):
     i = len(powOfTwo) - 1
 
     while i != -1:
-        a = (base ** (2 ** powOfTwo[i])) % modulo
+        a = (base ** (2 ** powOfTwo[i])) % mod
         c.append(a)
         i -= 1
 
     for x in c:
         result *= x
 
-    result = result % modulo
+    result = result % mod
 
     return result
