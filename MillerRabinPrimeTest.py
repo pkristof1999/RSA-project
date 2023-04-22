@@ -1,4 +1,4 @@
-import random
+from random import randint
 from FastExponentation import *
 
 def MillerRabin(n):
@@ -14,7 +14,7 @@ def MillerRabin(n):
         d //= 2
 
     for _ in range(128):
-        a = random.randint(2, n - 2)
+        a = randint(2, n - 2)
         x = fastExponentation(a, d, n)
         if x == 1 or x == n - 1:
             continue
@@ -26,3 +26,5 @@ def MillerRabin(n):
             return False
 
     return True
+
+print(MillerRabin(409))

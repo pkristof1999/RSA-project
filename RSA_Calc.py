@@ -47,10 +47,10 @@ class Calculate:
         else:
             verify = "Nem megfelelő aláírás"
 
-        return f"A kiválasztott prímek: {p}, {q}"\
-               f"RSA publikus kulcspár: ({phi}, {e})"\
+        return f"A kiválasztott prímek: {p}, {q}\n"\
+               f"RSA publikus kulcspár: ({phi}, {e})\n"\
                f"RSA privát kulcspár: ({phi}, {d})\n"\
-               f"Titkosítani kívánt üzenet: {message}"\
-               f"Titkosított üzenet: {c}"\
-               f"Aláírás: {S}"\
+               f"Titkosítani kívánt üzenet: {message}\n"\
+               f"Titkosított üzenet: {c}\n"\
+               f"Aláírás: {S}\n"\
                f"Ellenőrzés: {verify}"
