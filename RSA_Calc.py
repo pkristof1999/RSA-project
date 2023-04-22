@@ -3,6 +3,7 @@ from MillerRabinPrimeTest import *
 from FastExponentation import *
 from ExtendedEuclidean import *
 from ChineseRemainder import *
+from math import gcd
 
 class Calculate:
     def storeValues(self, a, pPrime_value, qPrime_value, eExponent_value, mMessage_value):
@@ -14,6 +15,8 @@ class Calculate:
     def keyGen(self, phi, a):
         while True:
             e = a.get_eExponent()
+            if gcd(int(e), int(phi)) != 1:
+                return ValueError
             (d, x, y) = extendedEuclidean(phi, e)
             if d == 1:
                 if y < 1:
@@ -21,31 +24,46 @@ class Calculate:
                 return e, y
 
     def calculate_RSA(self, a):
-        p = a.get_pPrime()
-        q = a.get_qPrime()
-        p = int(p)
-        q = int(q)
+        try:
+            p = a.get_pPrime()
+            q = a.get_qPrime()
+            message = a.get_mMessage()
 
-        message = a.get_mMessage()
-        mod = p * q
-        phi = (p - 1) * (q - 1)
+            p = int(p)
+            q = int(q)
 
-        e, d = self.keyGen(phi, a)
+            if p != q:
+                if MillerRabin(p) and MillerRabin(q):
+                    pass
+                else:
+                    raise ValueError("A megadott p vagy q prímek nem megfelelőek!")
+            else:
+                raise ValueError("A megadott p vagy q prímek nem megfelelőek!")
 
-        # Encryption
-        c = fastExponentation(message, e, mod)
+            mod = p * q
+            phi = (p - 1) * (q - 1)
 
-        # Decryption
-        m = chineseRemainder(p, q, c, d)
+            if self.keyGen(phi, a) != ValueError:
+                e, d = self.keyGen(phi, a)
+            else:
+                raise ValueError("A megadott e exponens nem megfelelő!")
 
-        # Signature
-        S = chineseRemainder(p, q, message, d)
+            # Encryption
+            c = fastExponentation(message, e, mod)
 
-        # Verifying
-        if m == fastExponentation(S, e, mod):
-            verify = "Megfelelő aláírás!"
-        else:
-            verify = "Nem megfelelő aláírás"
+            # Decryption
+            m = chineseRemainder(p, q, c, d)
+
+            # Signature
+            S = chineseRemainder(p, q, message, d)
+
+            # Verifying
+            if m == fastExponentation(S, e, mod):
+                verify = "Megfelelő aláírás!"
+            else:
+                verify = "Nem megfelelő aláírás"
+        except ValueError as ve:
+            return f"{ve}"
 
         return f"A kiválasztott prímek: {p}, {q}\n"\
                f"RSA publikus kulcspár: ({phi}, {e})\n"\

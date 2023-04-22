@@ -106,7 +106,7 @@ class Ui_RSA(object):
         self.calculationBox = QtWidgets.QListWidget(parent=self.centralwidget)
         self.calculationBox.setGeometry(QtCore.QRect(10, 420, 611, 191))
         font = QtGui.QFont()
-        font.setPointSize(16)
+        font.setPointSize(14)
         font.setBold(True)
         self.calculationBox.setFont(font)
         self.calculationBox.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.CursorShape.ForbiddenCursor))
