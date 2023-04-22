@@ -132,7 +132,8 @@ class Ui_RSA(object):
 
     def retranslateUi(self, RSA):
         _translate = QtCore.QCoreApplication.translate
-        RSA.setWindowTitle(_translate("RSA", "MainWindow"))
+        RSA.setWindowTitle(_translate("RSA", "RSA"))
+        RSA.setWindowIcon(QtGui.QIcon("RSA.ico"))
         self.primeNumbers_Box.setTitle(_translate("RSA", "Prímszámok"))
         self.pPrime_Label.setText(_translate("RSA", "Adjon meg egy tetszőleges nagy \"p\" prímszámot!"))
         self.qPrime_Label.setText(_translate("RSA", "Adjon meg egy tetszőleges nagy \"q\" prímszámot!"))
