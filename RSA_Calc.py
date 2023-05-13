@@ -66,8 +66,8 @@ class Calculate:
             return f"{ve}"
 
         return f"A kiválasztott prímek: {p}, {q}\n"\
-               f"RSA publikus kulcspár: ({phi}, {e})\n"\
-               f"RSA privát kulcspár: ({phi}, {d})\n"\
+               f"RSA publikus kulcspár: ({mod}, {e})\n"\
+               f"RSA privát kulcspár: ({mod}, {d})\n"\
                f"Titkosítani kívánt üzenet: {message}\n"\
                f"Titkosított üzenet: {c}\n"\
                f"Aláírás: {S}\n"\

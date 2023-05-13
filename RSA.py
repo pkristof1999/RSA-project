@@ -13,6 +13,7 @@ from RSA_Values import Values
 from RSA_Calc import Calculate
 from PyQt6 import QtCore, QtGui, QtWidgets
 
+
 class Ui_RSA(object):
     def initSubClasses(self):
         self.V = Values()
@@ -180,7 +181,6 @@ class Ui_RSA(object):
         self.exitButton.setText(_translate("RSA", "Kilépés"))
         self.calculateButton.setText(_translate("RSA", "Számolj!"))
         self.generateButton.setText(_translate("RSA", "Generálj!"))
-
 
     def genNumbers(self):
         while True:
