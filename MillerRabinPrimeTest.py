@@ -26,5 +26,3 @@ def MillerRabin(n):
             return False
 
     return True
-
-print(MillerRabin(409))

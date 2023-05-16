@@ -1,7 +1,4 @@
-from random import randint
 from MillerRabinPrimeTest import *
-from FastExponentation import *
-from ExtendedEuclidean import *
 from ChineseRemainder import *
 from math import gcd
 
